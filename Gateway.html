@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>PRACTICE 1</title>
+    <link rel="stylesheet" href="prac1.css" />
+    <style>
+        h1,h3{
+            text-align:center;
+            color:#555555;
+        }
+        .nav{
+            display:inline-block;
+        }
+        .box {
+            align-items:center;
+            text-align:center;
+            color:#555555;
+            padding-top:75px;
+            width: 300px;
+            height: 200px;
+            box-sizing:border-box;
+            display:inline-block;
+            margin:20px;
+            flex:33%;
+            background-color: #808080
+        }
+        #small{
+            width:100px;
+            height:100px;
+            margin:10px;
+        }
+        .center{
+            display:flex;
+            align-items:center;
+        }
+        .textcenter{
+            width:70%;
+            margin:auto;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div >
+            <ul>
+                <li class="nav">LOGO</li>
+                <li class="nav" style="float:right">NAVIGATION</li>
+            </ul>
+        </div>
+    </nav>
+    <header>
+        <div>
+            <h1>BANNER GOES HERE</h1>
+            <div style="margin:40px">
+                <p>PUNCHLINE GOES HERE</p>
+                <button>READ MORE</button>
+            </div>
+        </div>
+    </header>
+    <article>
+        <div class="textcenter">
+            <p style="text-align:center;">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry
+                . Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+            </p>
+        </div>
+        <div class="center">
+            <div class="box">SERVICE</div>
+            <div class="box">SERVICE</div>
+            <div class="box">SERVICE</div>
+        </div>
+        <h3 style="text-align:center">CLIENT LOGO GOES HERE</h3>
+        <div class="center">
+
+            <div class="box" id="small"></div>
+            <div class="box" id="small"></div>
+            <div class="box" id="small"></div>
+            <div class="box" id="small"></div>
+            <div class="box" id="small"></div>
+            <div class="box" id="small"></div>
+        </div>
+    </article>
+    <footer>
+        <ul>
+            <li class="nav">FOOTER ADDRESS</li>
+            <li class="nav" style="float:right">FOOTER LINKS</li>
+        </ul>
+        <ul>
+        <li class="nav">SOCIAL ICON</li>
+        </ul>
+        <ul>
+            <li class="nav">COPYRIGHT</li>
+            <li class="nav" style="float:right">PRIVACY</li>
+        </ul>
+    </footer>
+</body>
+</html>

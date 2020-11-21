@@ -1,0 +1,27 @@
+﻿body {
+    font-size:25px;
+    margin:0px;
+    color:#ffffff;
+    background-color:#000000
+}
+footer{
+    background-color:#808080;
+    padding:20px;
+}
+nav {
+    margin-bottom: 5px;
+    padding: 20px;
+    background-color: #808080;
+}
+article{
+    margin:20px;
+}
+header {
+    padding: 20px;
+    background-color: #808080;
+}
+button {
+    background-color: #3399ff;
+    color: #ffffff;
+    padding:5px;
+}
