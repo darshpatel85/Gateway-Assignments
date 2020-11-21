@@ -1,17 +1,14 @@
 ﻿body {
-    font-size:25px;
+
     margin:0px;
-    color:#ffffff;
-    background-color:#000000
+
 }
-footer{
-    background-color:#808080;
-    padding:20px;
+footer {
+    background-color: #bcdcf3;
+    padding: 20px;
 }
 nav {
-    margin-bottom: 5px;
-    padding: 20px;
-    background-color: #808080;
+    background-color: #bcdcf3;
 }
 article{
     margin:20px;

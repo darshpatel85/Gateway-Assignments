@@ -2,98 +2,187 @@
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <title>PRACTICE 1</title>
     <link rel="stylesheet" href="prac1.css" />
     <style>
-        h1,h3{
-            text-align:center;
-            color:#555555;
+        h1, h3 {
+            text-align: center;
+            color: #555555;
         }
-        .nav{
-            display:inline-block;
+
+        .nav-link {
+            color: #ffffff;
+            padding: 30px;
+            border-bottom: 0px;
         }
+
+            .nav-link:hover {
+                border-bottom: 1px;
+                color: #0000ff;
+            }
+
         .box {
-            align-items:center;
-            text-align:center;
-            color:#555555;
-            padding-top:75px;
+            align-items: center;
+            text-align: center;
+            color: #555555;
+            padding-top: 75px;
             width: 300px;
             height: 200px;
-            box-sizing:border-box;
-            display:inline-block;
-            margin:20px;
-            flex:33%;
+            box-sizing: border-box;
+            display: inline-block;
+            margin: 20px;
+            flex: 33%;
             background-color: #808080
         }
-        #small{
-            width:100px;
-            height:100px;
-            margin:10px;
+
+        .gallery-row {
+            display: flex;
         }
-        .center{
-            display:flex;
-            align-items:center;
+
+        .gallery-column {
+            flex: 33.33%;
+            padding: 5px;
         }
-        .textcenter{
-            width:70%;
-            margin:auto;
+
+        #small {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+        }
+
+        .center {
+            align-items: center;
+        }
+
+        .textcenter {
+            width: 70%;
+            margin: auto;
         }
     </style>
 </head>
 <body>
     <nav>
-        <div >
-            <ul>
-                <li class="nav">LOGO</li>
-                <li class="nav" style="float:right">NAVIGATION</li>
-            </ul>
-        </div>
+
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Gallery</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">About US</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Visit US</a>
+            </li>
+        </ul>
+
     </nav>
-    <header>
-        <div>
-            <h1>BANNER GOES HERE</h1>
+    <header style="background-image:url(images/cover.jpg);background-size:cover;background-attachment:fixed">
+        <div >
+            <h1 class="display-1 text-white">D EyE PHOTOGRAPHY</h1>
             <div style="margin:40px">
-                <p>PUNCHLINE GOES HERE</p>
-                <button>READ MORE</button>
+                <p class="blockquote">Save your precious moments with D EyE</p>
+                <button class="btn btn-primary">READ MORE</button>
             </div>
         </div>
     </header>
     <article>
         <div class="textcenter">
-            <p style="text-align:center;">
+            <p class="blockquote">
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry
                 . Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
             </p>
         </div>
-        <div class="center">
-            <div class="box">SERVICE</div>
-            <div class="box">SERVICE</div>
-            <div class="box">SERVICE</div>
-        </div>
-        <h3 style="text-align:center">CLIENT LOGO GOES HERE</h3>
-        <div class="center">
+        <h5 class="display-3 text-center">Our Services</h5>
+        <div class="row center">
+            <div class=" col-sm-3 m-5 p-0 card" style="width:250px;">
+                <img class="card-img-top" src="images/wedding.jpg" alt="wedding">
 
-            <div class="box" id="small"></div>
-            <div class="box" id="small"></div>
-            <div class="box" id="small"></div>
-            <div class="box" id="small"></div>
-            <div class="box" id="small"></div>
-            <div class="box" id="small"></div>
+                <div class="card-body">
+                    <h5 class="card-title">
+                        Wedding
+                    </h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+            <div class="col-sm-3 m-5 p-0  card" style="width:250px">
+                <img class="card-img-top" src="images/modelling.jpg" alt="personal">
+
+                <div class="card-body">
+                    <h5 class="card-title">
+                        Modelling
+                    </h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+            <div class="col-sm-3 m-5 p-0  card" style="width:250px">
+                <img class="card-img-top" src="images/editing.jpg" alt="Editing">
+
+                <div class="card-body">
+                    <h5 class="card-title">
+                        Editing
+                    </h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+
         </div>
     </article>
-    <footer>
-        <ul>
-            <li class="nav">FOOTER ADDRESS</li>
-            <li class="nav" style="float:right">FOOTER LINKS</li>
-        </ul>
-        <ul>
-        <li class="nav">SOCIAL ICON</li>
-        </ul>
-        <ul>
-            <li class="nav">COPYRIGHT</li>
-            <li class="nav" style="float:right">PRIVACY</li>
-        </ul>
-    </footer>
+        <h5 class="display-3 text-center">Glimpse of Our Work...</h5>
+        <div class="gallery-row m-2" >
+            <div class="gallery-column">
+                <img src="images/1.jpg" class="img-thumbnail">
+            </div>
+            <div class="gallery-column">
+                <img src="images/2.jpg" class="img-thumbnail">
+            </div>
+            <div class="gallery-column">
+                <img src="images/6.jpg" class="img-thumbnail">
+            </div>
+            <div class="gallery-column">
+                <img src="images/5.jpg" class="img-thumbnail">
+
+            </div>
+            <div class="gallery-column">
+                <img src="images/4.jpg" class="img-thumbnail">
+            </div>
+            <div class="gallery-column">
+                <img src="images/3.jpg" class="img-thumbnail">
+            </div>
+        </div>
+    
+        <footer>
+            <ul>
+                <li class="nav"><i class="fas fa-map-marker-alt m-2 "></i> 9-vir Complex,Mehsana 384002</li>
+                <li class="nav" style="float:right">
+                    <div class="m-2 p-2" >
+                        <a href="https://www.linkedin.com/in/darsh-patel-132aa418b/"><i class="fab m-2 fa-linkedin text-dark"></i></a>
+                        <a href="https://www.instagram.com/darsh._.patel/"><i class="fab m-2 fa-instagram text-dark"></i></a>
+                        <a href="https://github.com/darshpatel85"><i class="fab m-2 fa-github text-dark"></i></a>
+                        <a href="mailto:darshspatel85@gmail.com"><i class="fa m-2 fa-envelope text-dark"></i></a>
+                        <a href="telto:9054229929"><i class="fa m-2 fa-phone text-dark"></i></a>
+                    </div>
+
+                </li>
+            </ul>
+          
+            
+
+            <ul>
+                <li class="nav">&copy;Darsh patel,2020</li>
+            </ul>
+        </footer>
 </body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </html>
