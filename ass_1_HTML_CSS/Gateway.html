@@ -23,10 +23,14 @@
             border-bottom: 0px;
         }
 
-            .nav-link:hover {
-                border-bottom: 1px;
-                color: #0000ff;
-            }
+        .nav-link:hover {
+            border-bottom: 5px;
+            color: #0000ff;
+        }
+        .active {
+            border-bottom: 5px;
+            color: #0000ff;
+        }
 
         .box {
             align-items: center;
@@ -68,9 +72,10 @@
     </style>
 </head>
 <body>
-    <nav>
-
+    <nav class="container-fluid" style="position:sticky">
+        <img src="images/logo.png" style="width:100px;float:left;margin:5px;padding:10px" />
         <ul class="nav justify-content-end">
+
             <li class="nav-item">
                 <a class="nav-link active" href="#">Home</a>
             </li>
@@ -90,7 +95,7 @@
         <div >
             <h1 class="display-1 text-white">D EyE PHOTOGRAPHY</h1>
             <div style="margin:40px">
-                <p class="blockquote">Save your precious moments with D EyE</p>
+                <p class="blockquote text-white">Save your precious moments with D EyE</p>
                 <button class="btn btn-primary">READ MORE</button>
             </div>
         </div>
@@ -98,8 +103,7 @@
     <article>
         <div class="textcenter">
             <p class="blockquote">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry
-                . Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
             </p>
         </div>
         <h5 class="display-3 text-center">Our Services</h5>
@@ -111,7 +115,10 @@
                     <h5 class="card-title">
                         Wedding
                     </h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p class="card-text">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry
+                        . Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                    </p>
                 </div>
             </div>
             <div class="col-sm-3 m-5 p-0  card" style="width:250px">
@@ -121,7 +128,10 @@
                     <h5 class="card-title">
                         Modelling
                     </h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p class="card-text">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry
+                        . Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                    </p>
                 </div>
             </div>
             <div class="col-sm-3 m-5 p-0  card" style="width:250px">
@@ -131,7 +141,10 @@
                     <h5 class="card-title">
                         Editing
                     </h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p class="card-text">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry
+                        . Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                    </p>
                 </div>
             </div>
 
@@ -182,7 +195,5 @@
             </ul>
         </footer>
 </body>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </html>
