@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\darsh\\source\\repos\\SourceControl_Annot\\SourceControl_Annot\\SourceControl_Annot.csproj",
+      "projectUniqueName": "C:\\Users\\darsh\\Source\\Repos\\Gateway-Assignments\\SourceControl_Annot\\SourceControl_Annot\\SourceControl_Annot.csproj",
       "projectName": "SourceControl_Annot",
-      "projectPath": "C:\\Users\\darsh\\source\\repos\\SourceControl_Annot\\SourceControl_Annot\\SourceControl_Annot.csproj",
+      "projectPath": "C:\\Users\\darsh\\Source\\Repos\\Gateway-Assignments\\SourceControl_Annot\\SourceControl_Annot\\SourceControl_Annot.csproj",
       "packagesPath": "C:\\Users\\darsh\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\darsh\\source\\repos\\SourceControl_Annot\\SourceControl_Annot\\obj\\",
+      "outputPath": "C:\\Users\\darsh\\Source\\Repos\\Gateway-Assignments\\SourceControl_Annot\\SourceControl_Annot\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\darsh\\AppData\\Roaming\\NuGet\\NuGet.Config",
