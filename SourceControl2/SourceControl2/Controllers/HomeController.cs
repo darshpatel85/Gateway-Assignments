@@ -10,9 +10,10 @@ namespace SourceControl2.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.Name = TempData["Name"];
             return View();
         }
-
+        
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
