@@ -15,6 +15,11 @@
 </head>
 <body>
     <div class="container">
+        <br />
+        <h1>Log in</h1>
+        <br />
+        <br />
+
         @using (Html.BeginForm("Login", "Login", FormMethod.Post))
 
         {
@@ -31,6 +36,7 @@
                 @Html.ValidationMessageFor(m => m.Password, "", new { @class = "badge" })
             </div>
             <button type="submit" class="btn">Submit</button>
+            @Html.ActionLink("Register Here", "Register", "Login", new { @class = "link"})
         }
     </div>
 </body>

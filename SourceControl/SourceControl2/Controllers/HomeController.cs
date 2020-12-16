@@ -11,7 +11,10 @@ namespace SourceControl2.Controllers
         public ActionResult Index()
         {
             ViewBag.Name = TempData["Name"];
-            return View();
+            if (ViewBag.Name == null)
+                return RedirectToAction("Login", "Login");
+            else
+                return View();
         }
         
         public ActionResult About()
