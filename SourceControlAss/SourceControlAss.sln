@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SourceControlAss", "SourceControlAss.csproj", "{F17C055B-F156-4105-B23B-A0F05A8F3AD2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F17C055B-F156-4105-B23B-A0F05A8F3AD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F17C055B-F156-4105-B23B-A0F05A8F3AD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F17C055B-F156-4105-B23B-A0F05A8F3AD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F17C055B-F156-4105-B23B-A0F05A8F3AD2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2E14FE07-C77A-4511-9FCA-2815BB44ADB9}
+	EndGlobalSection
+EndGlobal
