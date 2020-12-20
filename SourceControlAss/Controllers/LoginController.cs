@@ -8,6 +8,7 @@ namespace SourceControlAss.Controllers
 {
     public class LoginController : Controller
     {
+        private Context context = new Context();
         // GET: Login
         public ActionResult Login()
         {
@@ -34,6 +35,8 @@ namespace SourceControlAss.Controllers
             
             if (ModelState.IsValid)
             {
+                context.employees.Add(employee);
+                context.SaveChanges();
                 TempData["Name"] = employee.Name;
                 return RedirectToAction("Index","Home");
             }
