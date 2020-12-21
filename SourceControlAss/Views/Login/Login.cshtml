@@ -7,29 +7,28 @@
 
 
 
-    <div class="container">
-        <br />
-        <h1>Log in</h1>
-        <br />
-        <br />
-        <div class="alert-danger">@ViewBag.error</div>
-        @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+<div class="container">
+    <br />
+    <h1>Log in</h1>
+    <br />
+    <br />
+    <div class="alert-danger">@ViewBag.error</div>
+    @using (Html.BeginForm("Login", "Login", FormMethod.Post))
 
-        {
-            @Html.AntiForgeryToken()
-            <div class="form-group">
-                @Html.LabelFor(m => m.Email)
-                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email" })
-                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "badge" })
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(m => m.Password)
-                @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
-                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "badge" })
-            </div>
-            <button type="submit" class="btn">Submit</button>
-            @Html.ActionLink("Register Here", "Register", "Login", new { @class = "link" })
-        }
-    </div>
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            @Html.LabelFor(m => m.Email)
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email" })
+            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "badge" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Password)
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
+            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "badge" })
+        </div>
+        <button type="submit" class="btn">Submit</button>
+        @Html.ActionLink("Register Here", "Register", "Login", new { @class = "link" })
+    }
+</div>
 

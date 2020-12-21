@@ -4,14 +4,30 @@
     ViewBag.Title = "Register";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#RegisterFormId").validate({
+            rules: {  
+                     Password : {
+                     required: true,
+                     equalTo: "#ConfirmPassword"                          
+                    },  
+                },
+            messages: {      
+                    Password: {
+                    value : "Enter Same Email Id."
+                },  
+                },                 
+            });  
+        }); 
+    </script>
 
     <div>
         <br />
         <h1>Register Here</h1>
         <br />
         <div class="alert-danger">@ViewBag.error</div>
-        @using (Html.BeginForm("Register", "Login", FormMethod.Post, "#RegisterFormId"))
+        @using (Html.BeginForm("Register", "Login", FormMethod.Post,new { @id = "RegisterFormId"}))
         {
             @Html.AntiForgeryToken()
             <div class="form-group">
@@ -57,7 +73,8 @@
                 @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "01/01/2000" })
                 @Html.ValidationMessageFor(m => m.Password, "", new { @class = "badge badge-danger" })
             </div>
-            <button type="submit" class="btn btn-success">Submit</button>
+
+            <button type="submit" id="submit" class="btn btn-success">Submit</button>
         }
     </div>
 

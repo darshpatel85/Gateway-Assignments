@@ -1,0 +1,19 @@
+2020-12-21 15:16:47.7714 INFO Into the Login Controller with GET Request
+2020-12-21 15:16:59.1274 INFO Into the Login Controller with POST Request
+2020-12-21 15:17:03.1784 INFO Email is Wrong:-(
+2020-12-21 15:17:12.1466 INFO Into the Login Controller with POST Request
+2020-12-21 15:17:12.2672 INFO Password is Wrong:-(
+2020-12-21 15:17:15.6049 INFO Into the Login Controller with POST Request
+2020-12-21 15:17:15.6110 INFO Login Successful:-)
+2020-12-21 21:34:16.2027 INFO Into the Login page with GET Request
+2020-12-21 21:35:50.1753 INFO Into the Login Controller with POST Request
+2020-12-21 21:35:55.4463 INFO Email is Wrong:-(
+2020-12-21 21:40:33.4406 INFO Into the Register page with GET Request
+2020-12-21 21:42:06.3268 INFO Into the Register page with GET Request
+2020-12-21 21:42:41.8756 INFO Into the Register page with GET Request
+2020-12-21 21:44:07.5648 INFO Into the Register page with GET Request
+2020-12-21 21:55:57.4674 INFO Into the Register page with GET Request
+2020-12-21 22:02:28.3682 INFO Into the Register page with GET Request
+2020-12-21 22:16:34.9094 INFO Into the Register page with GET Request
+2020-12-21 22:32:03.1786 INFO Into the Register page with GET Request
+2020-12-21 22:33:17.3269 INFO Into the Register page with GET Request

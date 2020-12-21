@@ -84,3 +84,6 @@ C:\Users\darsh\source\repos\Gateway-Assignments\SourceControlAss\bin\EntityFrame
 C:\Users\darsh\source\repos\Gateway-Assignments\SourceControlAss\obj\Debug\SourceControlAss.Migrations.ModelData.resources
 C:\Users\darsh\source\repos\Gateway-Assignments\SourceControlAss\obj\Debug\SourceControlAss.csproj.GenerateResource.cache
 C:\Users\darsh\source\repos\Gateway-Assignments\SourceControlAss\obj\Debug\SourceControlAss.Migrations.ModelData1.resources
+C:\Users\darsh\source\repos\Gateway-Assignments\SourceControlAss\bin\NLog.config
+C:\Users\darsh\source\repos\Gateway-Assignments\SourceControlAss\bin\NLog.dll
+C:\Users\darsh\source\repos\Gateway-Assignments\SourceControlAss\bin\NLog.xml
