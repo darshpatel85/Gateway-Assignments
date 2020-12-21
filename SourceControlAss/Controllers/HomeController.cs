@@ -10,10 +10,7 @@ namespace SourceControlAss.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Name = TempData["Name"];
-            if (ViewBag.Name == null)
-                return RedirectToAction("Login", "Login");
-            else
+            Session["Name"] = TempData["name"];
                 return View();
         }
         

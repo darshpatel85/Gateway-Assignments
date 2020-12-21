@@ -11,7 +11,7 @@ namespace SourceControlAss.Models
         public int  Id { get; set; }
 
 
-        [Required(ErrorMessage ="required")]
+        [CustomEmailValidator]
         [DataType(DataType.EmailAddress)]
         [RegularExpression("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$",ErrorMessage ="Email is not valid")]
         public string Email { get; set; }
@@ -28,6 +28,7 @@ namespace SourceControlAss.Models
         [Required(ErrorMessage = "required")]
         [DataType(DataType.Date)]
         [RegularExpression(@"^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$", ErrorMessage = "must in dd/mm/yyyy")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd-MM-yyyy}")] 
         public string DOB { get; set; }
 
 

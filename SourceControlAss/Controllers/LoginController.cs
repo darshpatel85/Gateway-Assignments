@@ -12,16 +12,37 @@ namespace SourceControlAss.Controllers
         // GET: Login
         public ActionResult Login()
         {
+
             return View();
+
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Login(Employee employee)
         {
-            return employee.Email=="darsh123@xyz.com" && employee.Password=="12345678" ? RedirectToAction("Index", "Home") : (ActionResult)View();
-        }
 
+            var EmailCheck = context.employees.FirstOrDefault(m => m.Email.Equals(employee.Email));
+            if (EmailCheck != null)
+            {
+                var PassCheck = context.employees.FirstOrDefault(m => m.Password.Equals(employee.Password));
+                if (PassCheck != null)
+                {
+                    TempData["name"] = PassCheck.Name;
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ViewBag.error = "Password is wrong...!!";
+                    return View();
+                }           
+            }
+            else
+            {
+                ViewBag.error = "Email is not registered...!!";
+                return View();
+            }
+        }
         //Get /Register
         public ActionResult Register()
         {
@@ -32,17 +53,23 @@ namespace SourceControlAss.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Register(Employee employee)
         {
-            
+
             if (ModelState.IsValid)
             {
-                context.employees.Add(employee);
-                context.SaveChanges();
-                TempData["Name"] = employee.Name;
-                return RedirectToAction("Index","Home");
+                var EmailCheck = context.employees.FirstOrDefault(m => m.Email.Equals(employee.Email));
+                if (EmailCheck == null)
+                {
+                    context.employees.Add(employee);
+                    context.SaveChanges();
+                    TempData["name"] = employee.Name;
+                    return RedirectToAction("Index", "Home");
+                }
+                ViewBag.error = "User Already exists...";
+
             }
 
             return View();
         }
-         
+
     }
 }

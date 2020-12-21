@@ -17,7 +17,8 @@ namespace SourceControlAss
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate.js",
                         "~/Scripts/jquery.validate.unobtrusive.js"));
-
+            bundles.Add(new ScriptBundle("~/CustomValidation").Include(
+                         "~/Scripts/date.validator.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                        "~/Scripts/bootstrap.js",
