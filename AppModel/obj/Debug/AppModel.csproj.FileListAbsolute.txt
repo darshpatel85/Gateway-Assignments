@@ -1,0 +1,5 @@
+C:\Users\darsh\source\repos\Gateway-Assignments\AppModel\bin\Debug\AppModel.dll
+C:\Users\darsh\source\repos\Gateway-Assignments\AppModel\bin\Debug\AppModel.pdb
+C:\Users\darsh\source\repos\Gateway-Assignments\AppModel\obj\Debug\AppModel.csproj.CoreCompileInputs.cache
+C:\Users\darsh\source\repos\Gateway-Assignments\AppModel\obj\Debug\AppModel.dll
+C:\Users\darsh\source\repos\Gateway-Assignments\AppModel\obj\Debug\AppModel.pdb

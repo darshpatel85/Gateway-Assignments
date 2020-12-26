@@ -1,0 +1,14 @@
+C:\Users\darsh\source\repos\Gateway-Assignments\AppDB\bin\Debug\AppDB.dll.config
+C:\Users\darsh\source\repos\Gateway-Assignments\AppDB\bin\Debug\AppDB.dll
+C:\Users\darsh\source\repos\Gateway-Assignments\AppDB\bin\Debug\AppDB.pdb
+C:\Users\darsh\source\repos\Gateway-Assignments\AppDB\bin\Debug\AppModel.dll
+C:\Users\darsh\source\repos\Gateway-Assignments\AppDB\bin\Debug\EntityFramework.dll
+C:\Users\darsh\source\repos\Gateway-Assignments\AppDB\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\darsh\source\repos\Gateway-Assignments\AppDB\bin\Debug\AppModel.pdb
+C:\Users\darsh\source\repos\Gateway-Assignments\AppDB\bin\Debug\EntityFramework.xml
+C:\Users\darsh\source\repos\Gateway-Assignments\AppDB\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\darsh\source\repos\Gateway-Assignments\AppDB\obj\Debug\AppDB.csprojAssemblyReference.cache
+C:\Users\darsh\source\repos\Gateway-Assignments\AppDB\obj\Debug\AppDB.csproj.CoreCompileInputs.cache
+C:\Users\darsh\source\repos\Gateway-Assignments\AppDB\obj\Debug\AppDB.csproj.CopyComplete
+C:\Users\darsh\source\repos\Gateway-Assignments\AppDB\obj\Debug\AppDB.dll
+C:\Users\darsh\source\repos\Gateway-Assignments\AppDB\obj\Debug\AppDB.pdb
