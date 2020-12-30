@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\darsh\source\repos\Gateway-Assignments\AppDB\ProductData.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\darsh\source\repos\Gateway-Assignments\AppDB\Model1.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

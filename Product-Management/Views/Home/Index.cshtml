@@ -1,63 +1,15 @@
-﻿@model IEnumerable<AppModel.Models.ProductModel>
-
+﻿
 @{
-    ViewBag.Title = "getAllProducts";
+    ViewBag.Title = "Index";
 }
 
-<h2>getAllProducts</h2>
+<div class="row bg-danger h-100" style="height:100%">
+    <div class="col-lg-3 h-100">
+        @Html.Partial("_Navigation")
+    </div>
+    <div class="col-lg-9">
+        <h1>Welcome @Session["Name"]</h1>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Category)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Quantity)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SDes)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LDes)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ImageURL)
-        </th>
-        <th></th>
-    </tr>
+    </div>
+</div>
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.Category)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Price)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Quantity)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.SDes)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.LDes)
-    </td>
-    <td>
-    <img src="~/images/@item.ImageURL" class="img" alt="Kulu" width="100" height="70" />
-    </td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-    </td>
-</tr>
-}
-
-</table>

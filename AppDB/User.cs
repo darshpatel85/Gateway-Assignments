@@ -12,19 +12,20 @@ namespace AppDB
     using System;
     using System.Collections.Generic;
     
-    public partial class Product
+    public partial class User
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public User()
+        {
+            this.Products = new HashSet<Product>();
+        }
+    
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Category { get; set; }
-        public decimal Price { get; set; }
-        public int Quantity { get; set; }
-        public string SDes { get; set; }
-        public string LDes { get; set; }
-        public string SImg { get; set; }
-        public string LImg { get; set; }
-        public int User_id { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
     
-        public virtual User User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Product> Products { get; set; }
     }
 }

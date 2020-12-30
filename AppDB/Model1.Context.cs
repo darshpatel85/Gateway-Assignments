@@ -25,8 +25,7 @@ namespace AppDB
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Product> Product { get; set; }
-
-        public System.Data.Entity.DbSet<AppModel.Models.ProductModel> ProductModels { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }
