@@ -5,8 +5,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using AppDB.DBO;
+
+
 namespace Product_Management.Controllers
 {
+    [SessionCheck]
     public class HomeController : Controller
     {
         ProductRepository produtctRepository = null;
@@ -82,14 +85,43 @@ namespace Product_Management.Controllers
             return View(result);
         }
         [HttpPost]
-        public ActionResult Edit(ProductModel product)
+        public ActionResult Edit(ProductModel product, HttpPostedFileBase sfile, HttpPostedFileBase lfile)
         {
-            if (ModelState.IsValid)
+            if (sfile != null)
             {
-                var result = produtctRepository.UpdateProduct(product.Id, product);
+                string ImageName = System.IO.Path.GetFileName(sfile.FileName);
+                string physicalPath = Server.MapPath("~/Images/" + ImageName);
+                sfile.SaveAs(physicalPath);
+                product.SImg = ImageName;
             }
-            return RedirectToAction("getAll", "Home");
+            if (lfile != null)
+            {
+                string ImageName = System.IO.Path.GetFileName(lfile.FileName);
+                string physicalPath = Server.MapPath("~/Images/" + ImageName);
+                lfile.SaveAs(physicalPath);
+                product.LImg = ImageName;
+            }
+            if (ModelState.IsValid)
+                {
+                    var result = produtctRepository.UpdateProduct(product.Id, product);
+                    if (result)
+                    {
+                        ModelState.Clear();
+                        return RedirectToAction("getAll");
+                    }
+                    else
+                    {
+                        ViewBag.status = "Not stored..";
+                    }
+                }
+                else
+                {
+                    ViewBag.status = "State Invalid";
+                }
+        return RedirectToAction("getAll", "Home");
         }
+
+    
 
         public ActionResult Delete(int id)
         {
@@ -104,6 +136,10 @@ namespace Product_Management.Controllers
                 var result = produtctRepository.DeleteProduct(product.Id, product);
             }
             return RedirectToAction("getAll", "Home");
+        }
+        public ActionResult About()
+        {
+            return View();
         }
     }
 }

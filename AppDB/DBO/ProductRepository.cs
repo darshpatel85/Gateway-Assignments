@@ -41,6 +41,7 @@ namespace AppDB.DBO
                     .Select(x => new ProductModel()
                     {
                         Id = x.Id,
+                        Name = x.Name,
                         Category = x.Category,
                         Price = x.Price,
                         Quantity = x.Quantity,
@@ -87,8 +88,8 @@ namespace AppDB.DBO
                     res.Price = product.Price;
                     res.Quantity = product.Quantity;
                     res.SDes = product.SDes;
-                    res.SImg = product.SImg;
-                    res.LImg = product.LImg;
+                    if(product.SImg != null)    res.SImg = product.SImg;
+                    if (product.LImg != null)   res.LImg = product.LImg;
                     Context.SaveChanges();
                     return true;
                 }

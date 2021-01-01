@@ -78,5 +78,12 @@ namespace Product_Management.Controllers
                 return View();
  
         }
+        public ActionResult Logout()
+        {
+            Session["id"] = null;
+            Session["name"] = null;
+            return RedirectToAction("Login");
+            
+        }
     }
 }

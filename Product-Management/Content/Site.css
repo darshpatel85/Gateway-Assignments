@@ -1,11 +1,12 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+
+    background-color: #D5DAD6;
+    color: #402842;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
+    padding-left:0px;
     padding-right: 15px;
 }
 
@@ -21,4 +22,26 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+.form-control:focus {
+    border-color: #402842;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #9D7FA3;
+}
+.card {
+    background-color: #ffffff;
+    padding-top: 30px;
+    font-size:larger;
+    padding-bottom: 100px;
+    border-radius:25px;
+    width:50%;
+    margin-left:25%;
+}
+#submit {
+    background-color: #402842;
+    color: #D5DAD6;
+
+}
+.box {
+    background-color: #402842;
+    color: #D5DAD6;
 }

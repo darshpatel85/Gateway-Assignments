@@ -2,14 +2,13 @@
 @{
     ViewBag.Title = "Index";
 }
-
-<div class="row bg-danger h-100" style="height:100%">
-    <div class="col-lg-3 h-100">
-        @Html.Partial("_Navigation")
+<div class="row">
+    <div class="col-lg-11 text-center">
+        <h1 style="font-family: 'Abril Fatface', cursive;">Welcome @Session["Name"]</h1>
     </div>
-    <div class="col-lg-9">
-        <h1>Welcome @Session["Name"]</h1>
+    <div class="col-lg-1" style="padding-right:0;margin-top:20px">
+
+        @Html.ActionLink(" Logout", "Logout", "Auth", "", new { @class = "btn btn-outline-success", id = "submit" })
 
     </div>
 </div>
-
