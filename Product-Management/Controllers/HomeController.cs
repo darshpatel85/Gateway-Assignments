@@ -67,10 +67,19 @@ namespace Product_Management.Controllers
             return View();
         }
 
-        public ActionResult getAll()
+        public ActionResult getAll(string sortBy,string order)
         {
             var uid = (int)Session["id"];
-            var result = produtctRepository.GetAllProducts(uid);
+            ViewBag.order = order;
+            var result = produtctRepository.GetAllProducts(uid,sortBy,order);
+            return View(result);
+            
+        }
+        [HttpPost]
+        public ActionResult getAll(string search)
+        {
+            var uid = (int)Session["id"];
+            var result = produtctRepository.GetAllProducts(uid,search);
             return View(result);
         }
 

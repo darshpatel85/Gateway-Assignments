@@ -5,20 +5,27 @@
 }
 
 <h2>My Products</h2>
-<hr/> 
+<hr />
+@using (Html.BeginForm())
+{<div class="form-horizontal form-group ">
+    <input type="search" class="form-control" style="margin:10px"  id="search" name="search" placeholder="search" />
+    <button type="submit" id="submit" class="btn btn-success" style="margin:10px" >Search</button>
+</div>
+
+}
 <table class="table">
     <tr>
         <th>
             Image
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.ActionLink("Name","getAll","Home",new { sortBy = "Name",order = ViewBag.order == null ? "Asc" : (ViewBag.order == "Asc" ? "Desc" : "Asc")},null)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Category)
+            @Html.ActionLink("Category", "getAll", "Home", new { sortBy = "Category", order = ViewBag.order == null ? "Asc" : (ViewBag.order == "Asc" ? "Desc" : "Asc") }, null)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Price)
+            @Html.ActionLink("Price", "getAll", "Home", new { sortBy = "Price", order = ViewBag.order == null ? "Asc" : (ViewBag.order == "Asc" ? "Desc" : "Asc") }, null)
         </th>
         <th>
             Discription
@@ -26,29 +33,30 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        <img src="~/images/@item.SImg" class="img" alt="image" width="100" height="70" />
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Name)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Category)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Price)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.SDes)
-    </td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-    </td>
-</tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <img src="~/images/@item.SImg" class="img" alt="image" width="100" height="70" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SDes)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
 
 </table>
