@@ -7,14 +7,17 @@ using AppDB;
 using AppModel.Models;
 namespace Product_Management.Controllers
 {
+    // GET: Auth
     public class AuthController : Controller
     {
-        // GET: Auth
-     
+        //GET:/Login   
         public ActionResult Login()
         {
             return View();
         }
+       
+        
+        //POST:/Login
         [HttpPost]
         public ActionResult Login(UserModel user)
         {
@@ -42,12 +45,13 @@ namespace Product_Management.Controllers
             }
         }
 
-
+        //GET:/Register
         public ActionResult Register()
         {
             return View();
         }
 
+        //POST:/Register
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Register(UserModel model)
@@ -78,6 +82,8 @@ namespace Product_Management.Controllers
                 return View();
  
         }
+
+        //GET:/Logout
         public ActionResult Logout()
         {
             Session["id"] = null;

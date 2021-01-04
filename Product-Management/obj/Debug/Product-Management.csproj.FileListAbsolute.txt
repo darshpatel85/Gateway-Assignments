@@ -86,3 +86,7 @@ C:\Users\darsh\source\repos\Gateway-Assignments\Product-Management\obj\Debug\Pro
 C:\Users\darsh\source\repos\Gateway-Assignments\Product-Management\obj\Debug\Product-Management.csproj.CopyComplete
 C:\Users\darsh\source\repos\Gateway-Assignments\Product-Management\obj\Debug\Product-Management.dll
 C:\Users\darsh\source\repos\Gateway-Assignments\Product-Management\obj\Debug\Product-Management.pdb
+C:\Users\darsh\source\repos\Gateway-Assignments\Product-Management\bin\PagedList.dll
+C:\Users\darsh\source\repos\Gateway-Assignments\Product-Management\bin\PagedList.Mvc.dll
+C:\Users\darsh\source\repos\Gateway-Assignments\Product-Management\bin\PagedList.xml
+C:\Users\darsh\source\repos\Gateway-Assignments\Product-Management\bin\PagedList.Mvc.xml

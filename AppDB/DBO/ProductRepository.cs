@@ -7,9 +7,11 @@ using System.Threading.Tasks;
 
 namespace AppDB.DBO
 {
+    //Database Operations
     public class ProductRepository
     {
-
+        //Add new  Product
+        //return Product Id
         public int AddProduct(ProductModel model, int id)
         {
             using (var context = new ProductDBEntities())
@@ -33,28 +35,38 @@ namespace AppDB.DBO
 
 
         }
-        public List<ProductModel> GetAllProducts(int id, string sortBy, string order)
+
+        //return Product List with sorting in asceding and dseceding order
+        //Name,Category,price
+        public List<ProductModel> GetAllProducts(int id, string sortBy, string order,string search)
         {
             using (var context = new ProductDBEntities())
             {
-                var result = context.Products.Where(x => x.User_id == id).ToList();
+                var result =new List<Product>();
+                if(search == null)
+                    result = context.Products.Where(x => x.User_id == id).ToList();
+                else
+                {
+                  result = context.Products.Where(x => x.User_id == id && (x.Name.Contains(search) || x.Price.ToString().Contains(search) || x.Category.Contains(search)))
+                            .ToList();        
+                }
                 switch (sortBy)
                 {
                     case "Name":
-                        if (order == "Desc")    result = context.Products.Where(x => x.User_id == id).OrderByDescending(x => x.Name).ToList();
-                        else result = context.Products.Where(x => x.User_id == id).OrderBy(x => x.Name).ToList();
+                        if (order == "Desc")    result = result.OrderByDescending(x => x.Name).ToList();
+                        else result = result.OrderBy(x => x.Name).ToList();
                         break;
                     case "Category":
-                        if (order == "Desc") result = context.Products.Where(x => x.User_id == id).OrderByDescending(x => x.Category).ToList();
-                        else result = context.Products.Where(x => x.User_id == id).OrderBy(x => x.Category).ToList();
+                        if (order == "Desc") result = result.OrderByDescending(x => x.Category).ToList();
+                        else result = result.OrderBy(x => x.Category).ToList();
                         break;
                     case "Price":
-                        if (order == "Desc") result = context.Products.Where(x => x.User_id == id).OrderByDescending(x => x.Price).ToList();
-                        else result = context.Products.Where(x => x.User_id == id).OrderBy(x => x.Price).ToList();
+                        if (order == "Desc") result = result.OrderByDescending(x => x.Price).ToList();
+                        else result = result.OrderBy(x => x.Price).ToList();
                         break;
                     default:
-                        if (order == "Desc") result = context.Products.Where(x => x.User_id == id).OrderByDescending(x => x.Name).ToList();
-                        else result = context.Products.Where(x => x.User_id == id).OrderBy(x => x.Name).ToList();
+                        if (order == "Desc") result = result.OrderByDescending(x => x.Name).ToList();
+                        else result = result.OrderBy(x => x.Name).ToList();
                         break;
                 }
                     var ans = result.Select(x => new ProductModel() {
@@ -71,33 +83,7 @@ namespace AppDB.DBO
                     return ans;   
             }
         }
-        public List<ProductModel> GetAllProducts(int id, string search)
-        {
-            if (search != null)
-            {
-                using (var context = new ProductDBEntities())
-                {
-                    var result = context.Products.Where(x => x.User_id == id && (x.Name == search || x.Price.ToString() == search || x.Category == search))
-                        .Select(x => new ProductModel()
-                        {
-                            Id = x.Id,
-                            Name = x.Name,
-                            Category = x.Category,
-                            Price = x.Price,
-                            Quantity = x.Quantity,
-                            SDes = x.SDes,
-                            SImg = x.SImg,
-                            LImg = x.LImg,
-                            LDes = x.LDes
-                        }).ToList();
-                    return result;
-                }
-            }
-            else
-            {
-                return GetAllProducts(id,"Name","Ass");
-            }
-        }
+        //return Product based on Id
         public ProductModel GetProduct(int id)
         {
             using (var context = new ProductDBEntities())
@@ -119,6 +105,7 @@ namespace AppDB.DBO
             }
         }
 
+        //update product details
         public bool UpdateProduct(int id, ProductModel product)
         {
             using (var Context = new ProductDBEntities())
@@ -142,7 +129,8 @@ namespace AppDB.DBO
             }
         }
 
-        public bool DeleteProduct(int id, ProductModel product)
+        //Delete Product
+        public bool DeleteProduct(int id)
         {
             using (var context = new ProductDBEntities())
             {

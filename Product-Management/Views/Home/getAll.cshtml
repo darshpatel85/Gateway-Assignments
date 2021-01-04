@@ -1,4 +1,5 @@
-﻿@model IEnumerable<AppModel.Models.ProductModel>
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<AppModel.Models.ProductModel>
 
 @{
     ViewBag.Title = "getAllProducts";
@@ -7,10 +8,14 @@
 <h2>My Products</h2>
 <hr />
 @using (Html.BeginForm())
-{<div class="form-horizontal form-group ">
-    <input type="search" class="form-control" style="margin:10px"  id="search" name="search" placeholder="search" />
-    <button type="submit" id="submit" class="btn btn-success" style="margin:10px" >Search</button>
-</div>
+{
+    <div class="input-group" style="display:inline-block">
+        <div class="input-group-btn">
+            @Html.TextBox("Search", null, new { @class = "form-control", @placeholder = "Search" })
+            <input type="submit" value="Search" class="btn btn-default" id="submit" />
+        </div>
+
+    </div>
 
 }
 <table class="table">
@@ -19,7 +24,7 @@
             Image
         </th>
         <th>
-            @Html.ActionLink("Name","getAll","Home",new { sortBy = "Name",order = ViewBag.order == null ? "Asc" : (ViewBag.order == "Asc" ? "Desc" : "Asc")},null)
+            @Html.ActionLink("Name", "getAll", "Home", new { sortBy = "Name", order = ViewBag.order == null ? "Asc" : (ViewBag.order == "Asc" ? "Desc" : "Asc") }, null)
         </th>
         <th>
             @Html.ActionLink("Category", "getAll", "Home", new { sortBy = "Category", order = ViewBag.order == null ? "Asc" : (ViewBag.order == "Asc" ? "Desc" : "Asc") }, null)
@@ -60,3 +65,12 @@
     }
 
 </table>
+
+<div id="container" style="margin-left: 20px">
+    <p></p>
+    <p></p>
+    <div class="pagination">
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+        of @Model.PageCount   @Html.PagedListPager(Model, page => Url.Action("getAll", new { page, sortBy = ViewBag.sortBy, order = ViewBag.order }))
+    </div>
+</div>

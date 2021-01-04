@@ -38,7 +38,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-4" })
                         <div class="col-md-8">
-                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { type = "Password", @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -49,11 +49,17 @@
                             <input type="submit" id="submit" value="Submit" class="col-lg-12 btn btn-success" />
                         </div>
                     </div>
-                    @Html.ActionLink("Create New Account","Register")<span class="glyphicon-arrow-left"></span>
+                    @Html.ActionLink("Create New Account", "Register")
                 </div>
             </div>
 
         }
     </div>
 </body>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/Scripts/jquery.validate.min.js")
+@Scripts.Render("~/Scripts/jquery.validate.unobtrusive.min.js")
+@Scripts.Render("~/Scripts/date.validator.js")
+
 </html>
