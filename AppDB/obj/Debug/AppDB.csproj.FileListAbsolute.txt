@@ -12,3 +12,6 @@ C:\Users\darsh\source\repos\Gateway-Assignments\AppDB\obj\Debug\AppDB.csproj.Cor
 C:\Users\darsh\source\repos\Gateway-Assignments\AppDB\obj\Debug\AppDB.csproj.CopyComplete
 C:\Users\darsh\source\repos\Gateway-Assignments\AppDB\obj\Debug\AppDB.dll
 C:\Users\darsh\source\repos\Gateway-Assignments\AppDB\obj\Debug\AppDB.pdb
+C:\Users\darsh\source\repos\Gateway-Assignments\AppDB\bin\Debug\NLog.config
+C:\Users\darsh\source\repos\Gateway-Assignments\AppDB\bin\Debug\NLog.dll
+C:\Users\darsh\source\repos\Gateway-Assignments\AppDB\bin\Debug\NLog.xml

@@ -4,73 +4,88 @@
 @{
     ViewBag.Title = "getAllProducts";
 }
+<html>
+<head>
 
-<h2>My Products</h2>
-<hr />
-@using (Html.BeginForm())
-{
-    <div class="input-group" style="display:inline-block">
-        <div class="input-group-btn">
-            @Html.TextBox("Search", null, new { @class = "form-control", @placeholder = "Search" })
-            <input type="submit" value="Search" class="btn btn-default" id="submit" />
-        </div>
-
-    </div>
-
-}
-<table class="table">
-    <tr>
-        <th>
-            Image
-        </th>
-        <th>
-            @Html.ActionLink("Name", "getAll", "Home", new { sortBy = "Name", order = ViewBag.order == null ? "Asc" : (ViewBag.order == "Asc" ? "Desc" : "Asc") }, null)
-        </th>
-        <th>
-            @Html.ActionLink("Category", "getAll", "Home", new { sortBy = "Category", order = ViewBag.order == null ? "Asc" : (ViewBag.order == "Asc" ? "Desc" : "Asc") }, null)
-        </th>
-        <th>
-            @Html.ActionLink("Price", "getAll", "Home", new { sortBy = "Price", order = ViewBag.order == null ? "Asc" : (ViewBag.order == "Asc" ? "Desc" : "Asc") }, null)
-        </th>
-        <th>
-            Discription
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
+</head>
+<body>
+    <h2>My Products</h2>
+    <hr />
+    @using (Html.BeginForm())
     {
-        <tr>
-            <td>
-                <img src="~/images/@item.SImg" class="img" alt="image" width="100" height="70" />
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Category)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SDes)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-            </td>
-        </tr>
+        <div class="input-group mb-3">
+                @Html.TextBox("Search", null, new { @class = "form-control", @placeholder = "Search" })
+                <div class="input-group-append">
+                    <input type="submit" value="Search" class="btn btn-default" id="submit" />
+
+            </div>
+
+        </div>
+        <div id="output"></div>
+        <table class="table" id="DataTable">
+            <tr>
+                <th>
+                    @Html.CheckBox("ID", new { id = "CheckAll" })
+                </th>
+                <th>
+                    Image
+                </th>
+                <th>
+                    @Html.ActionLink("Name", "getAll", "Home", new { sortBy = "Name", order = ViewBag.order == null ? "Asc" : (ViewBag.order == "Asc" ? "Desc" : "Asc") }, null)
+                </th>
+                <th>
+                    @Html.ActionLink("Category", "getAll", "Home", new { sortBy = "Category", order = ViewBag.order == null ? "Asc" : (ViewBag.order == "Asc" ? "Desc" : "Asc") }, null)
+                </th>
+                <th>
+                    @Html.ActionLink("Price", "getAll", "Home", new { sortBy = "Price", order = ViewBag.order == null ? "Asc" : (ViewBag.order == "Asc" ? "Desc" : "Asc") }, null)
+                </th>
+                <th>
+                    Discription
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.CheckBox("ID", new { id = "checkBoxAll", value = @item.Id })
+                    </td>
+                    <td>
+                        <img src="~/images/@item.SImg" class="img" alt="image" width="100" height="100" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SDes)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+
+        </table>
     }
-
-</table>
-
-<div id="container" style="margin-left: 20px">
-    <p></p>
-    <p></p>
-    <div class="pagination">
-        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
-        of @Model.PageCount   @Html.PagedListPager(Model, page => Url.Action("getAll", new { page, sortBy = ViewBag.sortBy, order = ViewBag.order }))
+    <div id="container" style="margin-left: 20px">
+        <p></p>
+        <p></p>
+        <div class="pagination">
+            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+            of @Model.PageCount 
+            <br/>
+            @Html.PagedListPager(Model, page => Url.Action("getAll", new { page, sortBy = ViewBag.sortBy, order = ViewBag.order }))
+        </div>
     </div>
-</div>
+
+</body>
+</html>

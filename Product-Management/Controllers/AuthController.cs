@@ -5,11 +5,14 @@ using System.Web;
 using System.Web.Mvc;
 using AppDB;
 using AppModel.Models;
+using NLog;
+
 namespace Product_Management.Controllers
 {
     // GET: Auth
     public class AuthController : Controller
     {
+        private static Logger logger = LogManager.GetLogger("LoggerRule");
         //GET:/Login   
         public ActionResult Login()
         {
@@ -21,27 +24,36 @@ namespace Product_Management.Controllers
         [HttpPost]
         public ActionResult Login(UserModel user)
         {
-            var context = new ProductDBEntities();
-            var EmailCheck = context.Users.FirstOrDefault(m => m.Email.Equals(user.Email));
-            if (EmailCheck != null)
+            try
             {
-                var PassCheck = context.Users.FirstOrDefault(m => m.Password.Equals(user.Password));
-                if (PassCheck != null)
+                var context = new ProductDBEntities();
+                var EmailCheck = context.Users.FirstOrDefault(m => m.Email.Equals(user.Email));
+                if (EmailCheck != null)
                 {
-                    Session["id"] = PassCheck.Id;
-                    Session["Name"] = PassCheck.Name;
-                    return RedirectToAction("Index", "Home");
+                    var PassCheck = context.Users.FirstOrDefault(m => m.Password.Equals(user.Password));
+                    if (PassCheck != null)
+                    {
+                        Session["id"] = PassCheck.Id;
+                        Session["Name"] = PassCheck.Name;
+                        logger.Info("User logged in with : " + user.Email);
+                        return RedirectToAction("Index", "Home");
+
+                    }
+                    else
+                    {
+                        ViewBag.error = "Password is wrong...!!";
+                        return View();
+                    }
                 }
                 else
                 {
-                    ViewBag.error = "Password is wrong...!!";
+                    ViewBag.error = "Email is not registered...!!";
                     return View();
                 }
-            }
-            else
+            }catch(Exception e)
             {
-                ViewBag.error = "Email is not registered...!!";
-                return View();
+                logger.Error("Exception in Login : " + e.Message);
+                return Content(e.Message);
             }
         }
 
@@ -56,23 +68,25 @@ namespace Product_Management.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Register(UserModel model)
         {
-
+            try
+            {
                 if (ModelState.IsValid)
                 {
                     var context = new ProductDBEntities();
                     var EmailCheck = context.Users.FirstOrDefault(m => m.Email.Equals(model.Email));
                     if (EmailCheck == null)
                     {
-                    User user = new User()
-                    {
-                        Email = model.Email,
-                        Name = model.Name,
-                        Password = model.Password
-                    };
+                        User user = new User()
+                        {
+                            Email = model.Email,
+                            Name = model.Name,
+                            Password = model.Password
+                        };
                         context.Users.Add(user);
                         context.SaveChanges();
                         Session["id"] = user.Id;
                         Session["Name"] = user.Name;
+                        logger.Info("User Registered with : " + user.Email);
                         return RedirectToAction("Index", "Home");
                     }
                     ViewBag.error = "User Already exists...";
@@ -80,12 +94,18 @@ namespace Product_Management.Controllers
                 }
 
                 return View();
+            }catch(Exception e)
+            {
+                logger.Error("Exception in register : " + e.Message);
+                return Content(e.Message);
+            }
  
         }
 
         //GET:/Logout
         public ActionResult Logout()
         {
+            logger.Info("User with id : " + Session["id"] + "is logged out");
             Session["id"] = null;
             Session["name"] = null;
             return RedirectToAction("Login");
