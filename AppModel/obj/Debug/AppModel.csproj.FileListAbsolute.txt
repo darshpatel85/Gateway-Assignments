@@ -1,0 +1,10 @@
+C:\Users\darsh\source\repos\Gateway-Assignments\AppModel\bin\Debug\AppModel.dll
+C:\Users\darsh\source\repos\Gateway-Assignments\AppModel\bin\Debug\AppModel.pdb
+C:\Users\darsh\source\repos\Gateway-Assignments\AppModel\obj\Debug\AppModel.csproj.CoreCompileInputs.cache
+C:\Users\darsh\source\repos\Gateway-Assignments\AppModel\obj\Debug\AppModel.dll
+C:\Users\darsh\source\repos\Gateway-Assignments\AppModel\obj\Debug\AppModel.pdb
+C:\Users\darsh\source\repos\Gateway-Assignments\AppModel\obj\Debug\AppModel.csprojAssemblyReference.cache
+C:\Users\darsh\source\repos\Gateway-Assignments\AppModel\bin\Debug\NLog.config
+C:\Users\darsh\source\repos\Gateway-Assignments\AppModel\bin\Debug\NLog.dll
+C:\Users\darsh\source\repos\Gateway-Assignments\AppModel\bin\Debug\NLog.xml
+C:\Users\darsh\source\repos\Gateway-Assignments\AppModel\obj\Debug\AppModel.csproj.CopyComplete

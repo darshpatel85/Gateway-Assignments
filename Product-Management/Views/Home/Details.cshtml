@@ -1,0 +1,40 @@
+﻿@model AppModel.Models.ProductModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+
+    <hr />
+    <div class="row col-lg-12">
+        <div class="col-lg-7">
+            <img src="~/images/@Model.LImg" class="img" alt="image" width="500" height="500" />
+        </div>
+        <div class="col-lg-4">
+            <h1> @Html.DisplayFor(model => model.Name) </h1>
+            <h3>
+                @Html.DisplayFor(model => model.Category)
+            </h3>
+            <h5>
+                @Html.DisplayFor(model => model.Price)
+            </h5>
+            <h4>
+                Quantity :
+                @Html.DisplayFor(model => model.Quantity)
+            </h4>
+            <p class="h4">
+                @Html.DisplayFor(model => model.SDes)
+            </p>
+            <p>
+                @Html.DisplayFor(model => model.LDes)
+            </p>
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.Id })
+            </p>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,17 @@
+2021-01-05 16:57:52.9313 INFO User logged in with : darsh@abc.com
+2021-01-05 17:47:38.5861 INFO User logged in with : darsh@abc.com
+2021-01-05 18:04:43.5351 INFO User logged in with : darsh@abc.com
+2021-01-05 18:04:56.1369 ERROR Exception at Product delete : Input string was not in a correct format.
+2021-01-05 18:05:35.5453 ERROR Exception at Product delete : Input string was not in a correct format.
+2021-01-05 19:08:30.2904 INFO User logged in with : darsh@abc.com
+2021-01-05 19:08:41.6499 ERROR Exception at Product delete : Input string was not in a correct format.
+2021-01-05 19:09:41.9590 INFO User logged in with : darsh@abc.com
+2021-01-05 19:15:34.1267 INFO User logged in with : darsh@abc.com
+2021-01-05 19:16:44.6928 INFO User logged in with : darsh@abc.com
+2021-01-05 19:18:23.7602 INFO User logged in with : darsh@abc.com
+2021-01-05 21:30:36.0301 INFO User logged in with : darsh@abc.com
+2021-01-05 21:52:38.1249 INFO User logged in with : darsh@abc.com
+2021-01-05 21:54:36.6619 INFO User logged in with : darsh@abc.com
+2021-01-05 21:55:44.0760 INFO User logged in with : darsh@abc.com
+2021-01-05 22:05:44.9435 INFO User logged in with : darsh@abc.com
+2021-01-05 22:18:49.9073 INFO User logged in with : darsh@abc.com
