@@ -95,9 +95,45 @@ namespace Product_Management.Controllers
                 ViewBag.order = order;
                 ViewBag.sortBy = sortBy;
                 var uid = (int)Session["id"];
-                if (!String.IsNullOrEmpty(search))
+                if (!String.IsNullOrEmpty(search) || !String.IsNullOrEmpty(ViewBag.search))
                 {
-                    result = produtctRepository.GetAllProducts(uid, sortBy, order, search);
+                    if (!String.IsNullOrEmpty(search)) ViewBag.search = search;
+                    string srch = ViewBag.search;
+                    result = produtctRepository.GetAllProducts(uid, sortBy, order, srch);
+
+                }
+                else
+                {
+                    result = produtctRepository.GetAllProducts(uid, sortBy, order, null);
+                }
+                var products = result.ToPagedList(pageIndex, pageSize);
+                return View(products);
+            }
+            catch (Exception e)
+            {
+                logger.Error("Exception at adding all product : " + e.Message);
+                return Content(e.Message);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult getAll(string sortBy, string order, string search)
+        {
+            try
+            {
+                var result = new List<ProductModel>();
+                int pageSize = 5;
+                int pageIndex = 1;
+
+                ViewBag.order = order;
+                ViewBag.sortBy = sortBy;
+                var uid = (int)Session["id"];
+                if (!String.IsNullOrEmpty(search) || !String.IsNullOrEmpty(ViewBag.search))
+                {
+                    if (!String.IsNullOrEmpty(search)) ViewBag.search = search;
+                    string srch = ViewBag.search;
+                    result = produtctRepository.GetAllProducts(uid, sortBy, order, srch);
+
                 }
                 else
                 {
@@ -221,21 +257,23 @@ namespace Product_Management.Controllers
 
 
         //POST:/Delete
-        [HttpPost]
-        public ActionResult getAll(FormCollection formCollection)
+
+        public ActionResult delete(FormCollection formCollection)
         {
             try
             {
+
                 string[] ids = formCollection["ID"].Split(new char[] { ',' });
+
                 foreach (string id in ids)
                 {
-                    int x;
                     if (id == "false") continue;
                     else
-                        x = Convert.ToInt32(id);
-                    var result = produtctRepository.DeleteProduct(x);
+                    {
+                        var id1 = Convert.ToInt32(id);
+                        var result = produtctRepository.DeleteProduct(id1);
+                    }
                 }
-
                 return RedirectToAction("getAll");
             }
             catch (Exception e)

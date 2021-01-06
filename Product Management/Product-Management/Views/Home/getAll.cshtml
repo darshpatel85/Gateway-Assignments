@@ -21,7 +21,12 @@
             </div>
 
         </div>
-        <button type="submit" value="Delete" id="delete" class="btn btn-danger m-3" style="visibility:hidden" onclick="return confirm('Are you sure?')"><i class="fa fa-trash-o"></i> Delete</button>
+    }
+    @using (Html.BeginForm("Delete","Home",FormMethod.Post))
+    {
+        <input type="submit" value="Search" class="btn btn-danger m-3"  style = "visibility:hidden" id="delete" />
+        @*@Html.ActionLink("Delete", "delete", new { ids = [11, 12, 13] }, new { id = "delete", @class = "btn btn-danger m-3", @style = "visibility:hidden" })*@
+
 
         <table class="table table-secondary">
             <tr>
@@ -32,13 +37,13 @@
                     Image
                 </th>
                 <th>
-                    @Html.ActionLink("Name", "getAll", "Home", new { sortBy = "Name", order = ViewBag.order == null ? "Asc" : (ViewBag.order == "Asc" ? "Desc" : "Asc") }, null)
+                    @Html.ActionLink("Name", "getAll", "Home", new { sortBy = "Name", order = ViewBag.order == null ? "NameDesc" : null, search = ViewBag.search }, null)
                 </th>
                 <th>
-                    @Html.ActionLink("Category", "getAll", "Home", new { sortBy = "Category", order = ViewBag.order == null ? "Asc" : (ViewBag.order == "Asc" ? "Desc" : "Asc") }, null)
+                    @Html.ActionLink("Category", "getAll", "Home", new { sortBy = "Category", order = ViewBag.order == null ? "CategoryDesc" : null, search = ViewBag.search }, null)
                 </th>
                 <th>
-                    @Html.ActionLink("Price", "getAll", "Home", new { sortBy = "Price", order = ViewBag.order == null ? "Asc" : (ViewBag.order == "Asc" ? "Desc" : "Asc") }, null)
+                    @Html.ActionLink("Price", "getAll", "Home", new { sortBy = "Price", order = ViewBag.order == null ? "PriceDesc" : null, search = ViewBag.search }, null)
                 </th>
                 <th>
                     Discription
@@ -84,7 +89,7 @@
             Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
             of @Model.PageCount
             <br />
-            @Html.PagedListPager(Model, page => Url.Action("getAll", new { page, sortBy = ViewBag.sortBy, order = ViewBag.order }))
+            @Html.PagedListPager(Model, page => Url.Action("getAll", new { page, sortBy = ViewBag.sortBy, order = ViewBag.order, search = ViewBag.search }))
         </div>
     </div>
 
@@ -112,5 +117,23 @@
             }
         })
     })
+    $("body").on("click", "#delete", function () {
+        //Get all the Checked CheckBoxes.
+        var checked = $("input[type=checkBox]:checked");
+        if (checked.length > 0) {
+
+            //Display Confirmation Message.
+            if (confirm("Do you want to delete " + checked.length + " row(s)?")) {
+
+                //Loop and build an Array of CustomerId to be deleted.
+                var customerIds = [];
+                checked.each(function () {
+                    var customerId = parseInt($(this).closest("tr").find("td").eq(1).html());
+                    customerIds.push(customerId);
+                })
+                @ViewBag.IDs = customerIds;
+            }
+        }
+    });
 
 </script>

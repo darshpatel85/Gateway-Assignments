@@ -55,20 +55,16 @@ namespace AppDB.DBO
                 }
                 switch (sortBy)
                 {
-                    case "Name":
-                        if (order == "Desc") result = result.OrderByDescending(x => x.Name).ToList();
-                        else result = result.OrderBy(x => x.Name).ToList();
-                        break;
                     case "Category":
-                        if (order == "Desc") result = result.OrderByDescending(x => x.Category).ToList();
+                        if (order == "CategoryDesc") result = result.OrderByDescending(x => x.Category).ToList();
                         else result = result.OrderBy(x => x.Category).ToList();
                         break;
                     case "Price":
-                        if (order == "Desc") result = result.OrderByDescending(x => x.Price).ToList();
+                        if (order == "PriceDesc") result = result.OrderByDescending(x => x.Price).ToList();
                         else result = result.OrderBy(x => x.Price).ToList();
                         break;
                     default:
-                        if (order == "Desc") result = result.OrderByDescending(x => x.Name).ToList();
+                        if (order == "NameDesc") result = result.OrderByDescending(x => x.Name).ToList();
                         else result = result.OrderBy(x => x.Name).ToList();
                         break;
                 }
