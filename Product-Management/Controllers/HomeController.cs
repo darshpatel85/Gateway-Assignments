@@ -37,7 +37,7 @@ namespace Product_Management.Controllers
 
         //POST:/Index
         [HttpPost]
-        public ActionResult Create(ProductModel productModel, HttpPostedFileBase sfile,HttpPostedFileBase lfile)
+        public ActionResult Create(ProductModel productModel, HttpPostedFileBase sfile, HttpPostedFileBase lfile)
         {
             try
             {
@@ -76,7 +76,7 @@ namespace Product_Management.Controllers
                 }
                 return View();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 logger.Error("Exception in Adding Product :" + e.Message);
                 return Content(e.Message);
@@ -84,7 +84,7 @@ namespace Product_Management.Controllers
         }
 
         //GET:/getAll
-        public ActionResult getAll(string sortBy,string order,string search,int? page)
+        public ActionResult getAll(string sortBy, string order, string search, int? page)
         {
             try
             {
@@ -105,7 +105,8 @@ namespace Product_Management.Controllers
                 }
                 var products = result.ToPagedList(pageIndex, pageSize);
                 return View(products);
-            }catch(Exception e)
+            }
+            catch (Exception e)
             {
                 logger.Error("Exception at adding all product : " + e.Message);
                 return Content(e.Message);
@@ -117,13 +118,14 @@ namespace Product_Management.Controllers
         //GET:/Details
         public ActionResult Details(int id)
         {
-            try { 
-            var result = produtctRepository.GetProduct(id);
-            return View(result);
+            try
+            {
+                var result = produtctRepository.GetProduct(id);
+                return View(result);
             }
             catch (Exception e)
             {
-                logger.Error("Exception at Product detail of Id : "+id +" : " + e.Message);
+                logger.Error("Exception at Product detail of Id : " + id + " : " + e.Message);
                 return Content(e.Message);
             }
         }
@@ -135,7 +137,8 @@ namespace Product_Management.Controllers
             {
                 var result = produtctRepository.GetProduct(id);
                 return View(result);
-            }catch (Exception e)
+            }
+            catch (Exception e)
             {
                 logger.Error("Exception at Product Edit of Id : " + id + " : " + e.Message);
                 return Content(e.Message);
@@ -145,35 +148,37 @@ namespace Product_Management.Controllers
         [HttpPost]
         public ActionResult Edit(ProductModel product, HttpPostedFileBase sfile, HttpPostedFileBase lfile)
         {
-            try { 
-            if (sfile != null)
+            try
             {
-                string ImageName = System.IO.Path.GetFileName(sfile.FileName);
-                string physicalPath = Server.MapPath("~/Images/" + ImageName);
-                sfile.SaveAs(physicalPath);
-                product.SImg = ImageName;
+                if (sfile != null)
+                {
+                    string ImageName = System.IO.Path.GetFileName(sfile.FileName);
+                    string physicalPath = Server.MapPath("~/Images/" + ImageName);
+                    sfile.SaveAs(physicalPath);
+                    product.SImg = ImageName;
+                }
+                if (lfile != null)
+                {
+                    string ImageName = System.IO.Path.GetFileName(lfile.FileName);
+                    string physicalPath = Server.MapPath("~/Images/" + ImageName);
+                    lfile.SaveAs(physicalPath);
+                    product.LImg = ImageName;
+                }
+                var result = produtctRepository.UpdateProduct(product.Id, product);
+                if (result)
+                {
+                    ModelState.Clear();
+                    ViewBag.status = "Product Updated Successfully..";
+
+                }
+                else
+                {
+                    ViewBag.status = "Not stored..";
+                }
+
+                return View();
             }
-            if (lfile != null)
-            {
-                string ImageName = System.IO.Path.GetFileName(lfile.FileName);
-                string physicalPath = Server.MapPath("~/Images/" + ImageName);
-                lfile.SaveAs(physicalPath);
-                product.LImg = ImageName;
-            }
-                    var result = produtctRepository.UpdateProduct(product.Id, product);
-                    if (result)
-                    {
-                        ModelState.Clear();
-                        ViewBag.status = "Product Updated Successfully..";
-                    
-                    }
-                    else
-                    {
-                        ViewBag.status = "Not stored..";
-                    }
-                
-            return View();
-            }catch (Exception e)
+            catch (Exception e)
             {
                 logger.Error("Exception at Product Edit : " + e.Message);
                 return Content(e.Message);
@@ -182,32 +187,61 @@ namespace Product_Management.Controllers
 
 
         //GET:/Delete
-        public ActionResult Delete(int id)
-        {
-            try { 
-            var result = produtctRepository.GetProduct(id);
-            return View(result);
-            }
-            catch (Exception e)
-            {
-                logger.Error("Exception at Product delete of Id : " + id + " : " + e.Message);
-                return Content(e.Message);
-            }
-        }
+        //public ActionResult Delete(int id)
+        //{
+        //    try
+        //    {
+        //        var result = produtctRepository.GetProduct(id);
+        //        return View(result);
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        logger.Error("Exception at Product delete of Id : " + id + " : " + e.Message);
+        //        return Content(e.Message);
+        //    }
+        //}
+
+        ////POST:/Delete
+        //[HttpPost]
+        //public ActionResult Delete(int id, ProductModel product)
+        //{
+        //    try
+        //    {
+        //        var result = produtctRepository.DeleteProduct(product.Id);
+        //        if (result) ViewBag.status = "Product Deleted Successfully";
+        //        return View();
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        logger.Error("Exception at Product delete of Id : " + id + " : " + e.Message);
+        //        return Content(e.Message);
+        //    }
+        //}
+
+
 
         //POST:/Delete
         [HttpPost]
-        public ActionResult Delete(int id,ProductModel product)
+        public ActionResult getAll(FormCollection formCollection)
         {
-            try { 
-                var result = produtctRepository.DeleteProduct(product.Id);
-                if(result) ViewBag.status = "Product Deleted Successfully";            
-            return View();
+            try
+            {
+                string[] ids = formCollection["ID"].Split(new char[] { ',' });
+                foreach (string id in ids)
+                {
+                    int x;
+                    if (id == "false") continue;
+                    else
+                        x = Convert.ToInt32(id);
+                    var result = produtctRepository.DeleteProduct(x);
+                }
+
+                return RedirectToAction("getAll");
             }
             catch (Exception e)
             {
-                logger.Error("Exception at Product delete of Id : " + id + " : " + e.Message);
-                return Content(e.Message);
+                logger.Error("Exception at Product delete : " + e.Message);
+                return Content(e.ToString());
             }
         }
         //GET:/About

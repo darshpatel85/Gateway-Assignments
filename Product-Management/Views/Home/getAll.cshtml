@@ -6,26 +6,27 @@
 }
 <html>
 <head>
-
+    
 </head>
 <body>
     <h2>My Products</h2>
     <hr />
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("getAll", "Home", FormMethod.Post))
     {
         <div class="input-group mb-3">
-                @Html.TextBox("Search", null, new { @class = "form-control", @placeholder = "Search" })
-                <div class="input-group-append">
-                    <input type="submit" value="Search" class="btn btn-default" id="submit" />
+            @Html.TextBox("Search", null, new { @class = "form-control", @placeholder = "Search" })
+            <div class="input-group-append">
+                <input type="submit" value="Search" class="btn btn-default" id="submit" />
 
             </div>
 
         </div>
-        <div id="output"></div>
-        <table class="table" id="DataTable">
+        <button type="submit" value="Delete" id="delete" class="btn btn-danger m-3" style="visibility:hidden" onclick="return confirm('Are you sure?')"><i class="fa fa-trash-o"></i> Delete</button>
+
+        <table class="table table-secondary">
             <tr>
                 <th>
-                    @Html.CheckBox("ID", new { id = "CheckAll" })
+                    @Html.CheckBox("ID", new { id = "CheckboxAll" })
                 </th>
                 <th>
                     Image
@@ -49,7 +50,7 @@
             {
                 <tr>
                     <td>
-                        @Html.CheckBox("ID", new { id = "checkBoxAll", value = @item.Id })
+                        @Html.CheckBox("ID", new { @class = "CheckBoxId", value = @item.Id })
                     </td>
                     <td>
                         <img src="~/images/@item.SImg" class="img" alt="image" width="100" height="100" />
@@ -68,8 +69,8 @@
                     </td>
                     <td>
                         @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                        @Html.ActionLink("Details", "Details", new { id = item.Id })
+                        @*  @Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
                     </td>
                 </tr>
             }
@@ -81,11 +82,35 @@
         <p></p>
         <div class="pagination">
             Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
-            of @Model.PageCount 
-            <br/>
+            of @Model.PageCount
+            <br />
             @Html.PagedListPager(Model, page => Url.Action("getAll", new { page, sortBy = ViewBag.sortBy, order = ViewBag.order }))
         </div>
     </div>
 
 </body>
 </html>
+<script>
+    $(document).ready(function () {
+        $('#CheckboxAll').click(function () {
+
+            if ($(this).is(":checked")) {
+                $(".CheckBoxId").prop("checked", true)
+                $("#delete").css("visibility", "visible")
+            }
+            else {
+                $(".CheckBoxId").prop("checked", false)
+                $("#delete").css("visibility", "hidden")
+            }
+        })
+        $('.CheckBoxId').click(function () {
+            if ($(this).is(":checked")) {
+                $("#delete").css("visibility", "visible")
+            }
+            else {
+                $("#delete").css("visibility", "hidden")
+            }
+        })
+    })
+
+</script>
